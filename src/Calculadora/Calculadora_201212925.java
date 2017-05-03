@@ -24,19 +24,26 @@ public class Calculadora_201212925 extends JFrame {
 	public float dato = 0, memory_A = 0, memory_B = 0, memory_C = 0;
 	public int tip_operador = 0, memory_pos = 0;
 	
+	Color VerdeOscuro = new Color(143, 209, 40);
+	
 	Calculadora_201212925(){
+		
 		Image Icono = new ImageIcon(getClass().getResource("/Imagenes/calculadora.png")).getImage(); //imagen icono de la calculadora
 		this.setIconImage(Icono);
+		setBackground(Color.BLACK);
 		setTitle("Calculadora by Kebyn");
-		setSize(465,325);//El tamaño es de 800x600
+		setSize(485,325);//El tamaño es de 800x600
 		setResizable(false);//No permite cambiar el tamaño de la pantalla 
 		setLocationRelativeTo(null);//Lo coloca en el centro de la pantalla
 		setDefaultCloseOperation(EXIT_ON_CLOSE);//Poder cerrar la aplicacion
 		getContentPane().setLayout(null);
+		
 		IniciarComponentes();//Metodo de los componentes
 	}
 	
 	public void IniciarComponentes(){
+		Image Screen = new ImageIcon(getClass().getResource("/Imagenes/Fondo.jpg")).getImage();//imagen de fondo
+		Panel_201212925 Panel = new Panel_201212925(Screen);
 		txt_display = new JTextField();
 		num_0 = new JButton();
 		num_1 = new JButton();
@@ -75,141 +82,144 @@ public class Calculadora_201212925 extends JFrame {
 		txt_display.setFont(new Font("Consolas", Font.PLAIN, 26));
 		txt_display.setForeground(Color.BLACK);
 		txt_display.setText("0");
+		txt_display.setBackground(VerdeOscuro);
 		txt_display.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
 		txt_display.setFocusable(false);
-		txt_display.setBounds(20,20,420,40);
+		txt_display.setBounds(20,20,440,40);
 		
 		//La primera fila de botones
 		btn_Mplus.setText("M+");
-		btn_Mplus.setBounds(20,80,55,30);
+		btn_Mplus.setBounds(30,80,55,30);
 		btn_Mplus.setFont(new Font("Helvetica", Font.BOLD, 12));
 		btn_fib.setText("Fib");
-		btn_fib.setBounds(80,80,55,30);
+		btn_fib.setBounds(90,80,55,30);
 		btn_fib.setFont(new Font("Helvetica", Font.BOLD, 12));
 		btn_bin.setText("Bin");
-		btn_bin.setBounds(140,80,55,30);
+		btn_bin.setBounds(150,80,55,30);
 		btn_bin.setFont(new Font("Helvetica", Font.BOLD, 12));
 		btn_fac.setText("Fac");
-		btn_fac.setBounds(200,80,55,30);
+		btn_fac.setBounds(210,80,55,30);
 		btn_fac.setFont(new Font("Helvetica", Font.BOLD, 12));
 		btn_C.setText("C");
-		btn_C.setBounds(260, 80, 55, 30);
+		btn_C.setBounds(270, 80, 55, 30);
 		btn_C.setFont(new Font("Helvetica", Font.BOLD, 12));
 		btn_MR.setText("MR");
-		btn_MR.setBounds(360, 100, 55, 30);
+		btn_MR.setBounds(385, 100, 55, 30);
 		btn_MR.setFont(new Font("Helvetica", Font.BOLD, 12));
 		
 		//La segunda fila de botones
 		btn_Mminum.setText("M-");
-		btn_Mminum.setBounds(20,120,55,30);
+		btn_Mminum.setBounds(30,120,55,30);
 		btn_Mminum.setFont(new Font("Helvetica", Font.BOLD, 12));
 		num_7.setText("7");
-		num_7.setBounds(80,120,55,30);
+		num_7.setBounds(90,120,55,30);
 		num_7.setFont(new Font("Helvetica", Font.BOLD, 12));
 		num_8.setText("8");
-		num_8.setBounds(140,120,55,30);
+		num_8.setBounds(150,120,55,30);
 		num_8.setFont(new Font("Helvetica", Font.BOLD, 12));
 		num_9.setText("9");
-		num_9.setBounds(200,120,55,30);
+		num_9.setBounds(210,120,55,30);
 		num_9.setFont(new Font("Helvetica", Font.BOLD, 12));
 		btn_suma.setText("+");
-		btn_suma.setBounds(260, 120, 55, 30);
+		btn_suma.setBounds(270, 120, 55, 30);
 		btn_suma.setFont(new Font("Helvetica", Font.BOLD, 12));
 		Mem_A.setText("Memoria A");
-		Mem_A.setBounds(335, 140, 100, 30);
+		Mem_A.setBounds(355, 140, 100, 30);
 		
 		//La tercera fila de botones
 		btn_tan.setText("tan");
-		btn_tan.setBounds(20,160,55,30);
+		btn_tan.setBounds(30,160,55,30);
 		btn_tan.setFont(new Font("Helvetica", Font.BOLD, 12));
 		num_4.setText("4");
-		num_4.setBounds(80,160,55,30);
+		num_4.setBounds(90,160,55,30);
 		num_4.setFont(new Font("Helvetica", Font.BOLD, 12));
 		num_5.setText("5");
-		num_5.setBounds(140,160,55,30);
+		num_5.setBounds(150,160,55,30);
 		num_5.setFont(new Font("Helvetica", Font.BOLD, 12));
 		num_6.setText("6");
-		num_6.setBounds(200,160,55,30);
+		num_6.setBounds(210,160,55,30);
 		num_6.setFont(new Font("Helvetica", Font.BOLD, 12));
 		btn_resta.setText("-");
-		btn_resta.setBounds(260, 160, 55, 30);
+		btn_resta.setBounds(270, 160, 55, 30);
 		btn_resta.setFont(new Font("Helvetica", Font.BOLD, 12));
 		Mem_B.setText("Memoria B");
-		Mem_B.setBounds(335, 180, 100, 30);
+		Mem_B.setBounds(355, 170, 100, 30);
 
 		//La cuarta fila de botones
 		btn_cos.setText("cos");
-		btn_cos.setBounds(20,200,55,30);
+		btn_cos.setBounds(30,200,55,30);
 		btn_cos.setFont(new Font("Helvetica", Font.BOLD, 12));
 		num_1.setText("1");
-		num_1.setBounds(80,200,55,30);
+		num_1.setBounds(90,200,55,30);
 		num_1.setFont(new Font("Helvetica", Font.BOLD, 12));
 		num_2.setText("2");
-		num_2.setBounds(140,200,55,30);
+		num_2.setBounds(150,200,55,30);
 		num_2.setFont(new Font("Helvetica", Font.BOLD, 12));
 		num_3.setText("3");
-		num_3.setBounds(200,200,55,30);
+		num_3.setBounds(210,200,55,30);
 		num_3.setFont(new Font("Helvetica", Font.BOLD, 12));
 		btn_mult.setText("x");
-		btn_mult.setBounds(260, 200, 55, 30);
+		btn_mult.setBounds(270, 200, 55, 30);
 		btn_mult.setFont(new Font("Helvetica", Font.BOLD, 12));
 		Mem_C.setText("Memoria C");
-		Mem_C.setBounds(335, 220, 100, 30);
+		Mem_C.setBounds(355, 200, 100, 30);
 		
 		//La quinta fila de botones
 		btn_sen.setText("sen");
-		btn_sen.setBounds(20,240,55,30);
+		btn_sen.setBounds(30,240,55,30);
 		btn_sen.setFont(new Font("Helvetica", Font.BOLD, 12));
 		btn_pt.setText(".");
-		btn_pt.setBounds(80,240,55,30);
+		btn_pt.setBounds(90,240,55,30);
 		btn_pt.setFont(new Font("Helvetica", Font.BOLD, 12));
 		num_0.setText("0");
-		num_0.setBounds(140,240,55,30);
+		num_0.setBounds(150,240,55,30);
 		num_0.setFont(new Font("Helvetica", Font.BOLD, 12));
 		btn_enter.setText("=");
-		btn_enter.setBounds(200,240,55,30);
+		btn_enter.setBounds(210,240,55,30);
 		btn_enter.setFont(new Font("Helvetica", Font.BOLD, 12));
 		btn_div.setText("/");
-		btn_div.setBounds(260, 240, 55, 30);
+		btn_div.setBounds(270, 240, 55, 30);
 		btn_div.setFont(new Font("Helvetica", Font.BOLD, 12));
 		
 		Memoria.add(Mem_A);
 		Memoria.add(Mem_B);
 		Memoria.add(Mem_C);
-		this.getContentPane().add(txt_display);
-		this.getContentPane().add(btn_Mplus);
-		this.getContentPane().add(btn_fib);
-		this.getContentPane().add(btn_bin);
-		this.getContentPane().add(btn_fac);
-		this.getContentPane().add(btn_C);
-		this.getContentPane().add(btn_MR);//Primera Fila
-		this.getContentPane().add(btn_Mminum);
-		this.getContentPane().add(num_7);
-		this.getContentPane().add(num_8);
-		this.getContentPane().add(num_9);
-		this.getContentPane().add(btn_suma);
-		this.getContentPane().add(Mem_A);//Segunda fila
-		this.getContentPane().add(btn_tan);
-		this.getContentPane().add(num_4);
-		this.getContentPane().add(num_5);
-		this.getContentPane().add(num_6);
-		this.getContentPane().add(btn_resta);
-		this.getContentPane().add(Mem_B);//Tercera fila
-		this.getContentPane().add(btn_cos);
-		this.getContentPane().add(num_1);
-		this.getContentPane().add(num_2);
-		this.getContentPane().add(num_3);
-		this.getContentPane().add(btn_mult);
-		this.getContentPane().add(Mem_C);//Cuarta fila
-		this.getContentPane().add(btn_sen);
-		this.getContentPane().add(btn_pt);
-		this.getContentPane().add(num_0);
-		this.getContentPane().add(btn_enter);
-		this.getContentPane().add(btn_div);
+		this.getContentPane().add(Panel);
+		
+		Panel.add(txt_display);
+		Panel.add(btn_Mplus);
+		Panel.add(btn_fib);
+		Panel.add(btn_bin);
+		Panel.add(btn_fac);
+		Panel.add(btn_C);
+		Panel.add(btn_MR);//Primera Fila
+		Panel.add(btn_Mminum);
+		Panel.add(num_7);
+		Panel.add(num_8);
+		Panel.add(num_9);
+		Panel.add(btn_suma);
+		Panel.add(Mem_A);//Segunda fila
+		Panel.add(btn_tan);
+		Panel.add(num_4);
+		Panel.add(num_5);
+		Panel.add(num_6);
+		Panel.add(btn_resta);
+		Panel.add(Mem_B);//Tercera fila
+		Panel.add(btn_cos);
+		Panel.add(num_1);
+		Panel.add(num_2);
+		Panel.add(num_3);
+		Panel.add(btn_mult);
+		Panel.add(Mem_C);//Cuarta fila
+		Panel.add(btn_sen);
+		Panel.add(btn_pt);
+		Panel.add(num_0);
+		Panel.add(btn_enter);
+		Panel.add(btn_div);
 		
 		num_1.addActionListener(new ActionListener() {//Boton no. 1
             public void actionPerformed(ActionEvent e){
-            	if(!(txt_display.getText().length() == 22)){
+            	if(!(txt_display.getText().length() == 29)){
             		if(txt_display.getText().equals("0")){
 	            		txt_display.setText("1");
 	            	}else{	
@@ -221,7 +231,7 @@ public class Calculadora_201212925 extends JFrame {
 		
 		num_2.addActionListener(new ActionListener() {//Boton no. 2
             public void actionPerformed(ActionEvent e){
-            	if(!(txt_display.getText().length() == 22)){
+            	if(!(txt_display.getText().length() == 29)){
 	            	if(txt_display.getText().equals("0")){
 	            		txt_display.setText("2");
 	            	}else{	
@@ -233,7 +243,7 @@ public class Calculadora_201212925 extends JFrame {
 		
 		num_3.addActionListener(new ActionListener() {//Boton no. 3
             public void actionPerformed(ActionEvent e){
-            	if(!(txt_display.getText().length() == 22)){
+            	if(!(txt_display.getText().length() == 29)){
 	            	if(txt_display.getText().equals("0")){
 	            		txt_display.setText("3");
 	            	}else{	
@@ -257,7 +267,7 @@ public class Calculadora_201212925 extends JFrame {
 		
 		num_5.addActionListener(new ActionListener() {//Boton no. 5
             public void actionPerformed(ActionEvent e){
-            	if(!(txt_display.getText().length() == 22)){
+            	if(!(txt_display.getText().length() == 29)){
 	            	if(txt_display.getText().equals("0")){
 	            		txt_display.setText("5");
 	            	}else{	
@@ -269,7 +279,7 @@ public class Calculadora_201212925 extends JFrame {
 		
 		num_6.addActionListener(new ActionListener() {//Boton no. 6
             public void actionPerformed(ActionEvent e){
-            	if(!(txt_display.getText().length() == 22)){
+            	if(!(txt_display.getText().length() == 29)){
 	            	if(txt_display.getText().equals("0")){
 	            		txt_display.setText("6");
 	            	}else{	
@@ -281,7 +291,7 @@ public class Calculadora_201212925 extends JFrame {
 		
 		num_7.addActionListener(new ActionListener() {//Boton no. 7
             public void actionPerformed(ActionEvent e){
-            	if(!(txt_display.getText().length() == 22)){
+            	if(!(txt_display.getText().length() == 29)){
 	            	if(txt_display.getText().equals("0")){
 	            		txt_display.setText("7");
 	            	}else{	
@@ -293,7 +303,7 @@ public class Calculadora_201212925 extends JFrame {
 		
 		num_8.addActionListener(new ActionListener() {//Boton no. 8
             public void actionPerformed(ActionEvent e){
-            	if(!(txt_display.getText().length() == 22)){
+            	if(!(txt_display.getText().length() == 29)){
 	            	if(txt_display.getText().equals("0")){
 	            		txt_display.setText("8");
 	            	}else{	
@@ -305,7 +315,7 @@ public class Calculadora_201212925 extends JFrame {
 		
 		num_9.addActionListener(new ActionListener() {//Boton no. 9
             public void actionPerformed(ActionEvent e){
-            	if(!(txt_display.getText().length() == 22)){
+            	if(!(txt_display.getText().length() == 29)){
 	            	if(txt_display.getText().equals("0")){
 	            		txt_display.setText("9");
 	            	}else{	
@@ -318,7 +328,7 @@ public class Calculadora_201212925 extends JFrame {
 		
 		num_0.addActionListener(new ActionListener() {//Boton no. 0
             public void actionPerformed(ActionEvent e){
-            	if(!(txt_display.getText().length() == 22)){
+            	if(!(txt_display.getText().length() == 29)){
 	            	if(txt_display.getText().equals("0")){
 	            		txt_display.setText("0");
 	            	}else{	

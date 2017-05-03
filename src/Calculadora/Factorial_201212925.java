@@ -1,8 +1,7 @@
 package Calculadora;
 
 public class Factorial_201212925 {
-	
-	String stamFactorial;
+
 	float tamFactorial;
 
 	public Factorial_201212925(){
